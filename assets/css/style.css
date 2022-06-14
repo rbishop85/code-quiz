@@ -24,3 +24,7 @@ header{
     padding: 10px;
     text-align: center;
 }
+
+button{
+    border-radius: .5em;
+}
