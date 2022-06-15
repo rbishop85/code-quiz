@@ -44,30 +44,22 @@ var htmlTemplate = "";
 
 //Function for posting current question
 function displayQuestion () {
-    htmlTemplate = (
+    quizEl.innerHTML = "";
+
+    quizEl.innerHTML = (
         "<h1>" + questions[current].question + "</h1>" + 
         "<div id='answerbutton'>" + questions[current].answers[0] + "</div>" + 
         "<div id='answerbutton'>" + questions[current].answers[1] + "</div>" + 
         "<div id='answerbutton'>" + questions[current].answers[2] + "</div>" + 
         "<div id='answerbutton'>" + questions[current].answers[3] + "</div>")
-
-    quizEl.innerHTML = "";
-
-    quizEl.innerHTML = htmlTemplate;
 }
 
+function displayResults () {
+    quizEl.innerHTML = "";
 
-// HTML Template for use in displaying questions
-// var htmlTemplate = (
-//     "<h1>" + questions[current].question + "</h1>" + 
-//     "<div id='answerbutton'>" + questions[current].answers[0] + "</div>" + 
-//     "<div id='answerbutton'>" + questions[current].answers[1] + "</div>" + 
-//     "<div id='answerbutton'>" + questions[current].answers[2] + "</div>" + 
-//     "<div id='answerbutton'>" + questions[current].answers[3] + "</div>")
+    quizEl.innerHTML = "<h1>Your score is: " + timeLeft + "!</h1>"
 
-// Console log displaying the contents of htmlTemplate
-// console.log("");
-// console.log(htmlTemplate);
+}
 
 var timeLeft = 0;
 
@@ -78,22 +70,28 @@ document.addEventListener("click", answerQuestion)
 function startQuiz (){
     countdown();
     displayQuestion();
-
-    // quizEl.innerHTML = "";
-
-    // quizEl.innerHTML = htmlTemplate;
 }
 
+var timeInterval = "";
+// Function for what to do when someone clicks on a question answer
 function answerQuestion(event) {
     if (event.target.matches("#answerbutton")) {
-        
+        console.log(current);
         if (event.target.textContent === questions[current].correctAnswer) {
             console.log("Correct");
         } else {
             console.log("Wrong! Answer was: " + questions[current].correctAnswer);
+            timeLeft = (timeLeft - 5);
         }
-        current++;
-        displayQuestion();
+        if (current < (questions.length - 1)) {
+            current++;
+            displayQuestion();
+        } else {
+            console.log("Your Score is: " + timeLeft)
+            scoreTimeEl.textContent = "";
+            clearInterval(timeInterval);
+            displayResults();
+        }
     }
 } 
 
@@ -101,7 +99,7 @@ function answerQuestion(event) {
 function countdown() {
     timeLeft = 30;
   
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
       if (timeLeft >= 1) {
         scoreTimeEl.textContent = timeLeft;
         timeLeft--;
