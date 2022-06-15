@@ -3,18 +3,16 @@ header{
     justify-content: space-between;
 }
 
-#highscores, #timer{
-    background-color: yellow;
+#left, #right{
     margin: 10px;
     padding: 10px;
 }
 
 #main{
-    background-color: green;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 #quiz, #answerresults{
