@@ -1,8 +1,14 @@
-// Declare timer/score variable (number)
+// The box that the timer will display in:
 var scoreTimeEl = document.querySelector("#timer");
-// variables for page objects ( start button, timer number, main quiz area "any area of the page we need to modify with javascript")
+// The box that questions will display in:
 var quizEl = document.querySelector("#quiz");
+// The box that Correct or Wrong will display in:
 var answerResultsEl = document.querySelector("#answerresults");
+// The Start button
+var startButtonEl = document.querySelector("#startquiz");
+console.log(startButtonEl);
+// Variable to track what question you're on
+var currentQuestion = 0;
 
 console.log(scoreTimeEl);
 console.log(quizEl);
@@ -36,11 +42,21 @@ var questions = [
         correctAnswer: "A"
     }
 ]
-countdown();
+
+var timeLeft = 0;
+
+console.log(startButtonEl);
+startButtonEl.addEventListener("click", function() {
+    countdown();
+})
+
+
+// Manually starts countdown function
+// countdown();
 
 // Countdown function pulled from day 1 activity 10
 function countdown() {
-    var timeLeft = 10;
+    timeLeft = 10;
   
     var timeInterval = setInterval(function () {
       if (timeLeft >= 1) {
@@ -52,7 +68,7 @@ function countdown() {
         // Call a function here if you want it to run when clock hits 0
       }
     }, 1000);
-  }
+}
 
 
 
