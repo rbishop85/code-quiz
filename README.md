@@ -18,44 +18,28 @@ Timed coding quiz featuring dynamically updated HTML and CSS powered by Javascri
 
 
 // Class Demo
-// score is time remaining?
 // separate js file for game and highscores page
 // separate html page for high scores and index
 // Don't have to name index.html when linking from high scores back to index, can just href="./"
 
 
-
-
-// Function for "startGame"
-    // Hide the start screen
-
-    // Display the first question
-
-    // Set starting value of countdown
-
-    // Start timer (maybe separate function that's called by startGame function)
-
-// Function "answerQuestion"
-    // Check if selected answer is correct
-        // If the answer is wrong
-            // Then we need to subtract from timer
-    // Display next question
-
-// Function "diplayCurrentQuestion"
-
-
-
-
-// change id tag on quiz section to change it to a style where it's hidden
+// change id tag on quiz section to change it to a style where it's hidden instead of replacing it?
 
 
 // for collecting high score refer to day 2 activity 13 for similar example to collect and put into variable
     // input item, and submit button
 
-
-
 // event.target ? for info on button clicked
 
-// custom data attached to items (data-answer on buttons to store the contents of button?)
+// end game
+
+// append game ending into timer function if it hits 0
 
 
+// Function to record high score
+// div for start screen <-- hide when questions start
+// div for questions <--> shown on start, hidden when you go to highscores div
+// div for highscores <-- shown after game ends
+
+// insert data attributes into buttons
+// template literal backtic ` around html template instead of quotes

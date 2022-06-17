@@ -9,19 +9,19 @@ header{
     justify-content: space-between;
 }
 
-#left, #right{
+#left, #right {
     margin: 10px;
     padding: 10px;
 }
 
-#main{
+#main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding-top: 50px;
 }
 
-#quiz, #answerresults{
+#intro, #quiz, #finalscore, #answerresults {
     background-color: yellow;
     width: 50%;
     margin: 10px;
@@ -29,10 +29,22 @@ header{
     text-align: center;
 }
 
-#quiz {
+#intro, #quiz, #finalscore {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+#intro {
+    display: flex;
+}
+
+#quiz {
+    display: none;
+}
+
+#finalscore {
+    display: none;
 }
 
 h1 {
