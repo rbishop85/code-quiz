@@ -1,16 +1,19 @@
 // The box that the timer will display in:
 var scoreTimeEl = document.querySelector("#timer");
+// The intro section that displays when the quiz page is first loaded:
+var introEl = document.querySelector("#intro");
 // The box that questions will display in:
 var quizEl = document.querySelector("#quiz");
+// The box that the Final Score will display in:
+var finalScoreEl = document.querySelector("#finalscore");
 // The box that Correct or Wrong will display in:
 var answerResultsEl = document.querySelector("#answerresults");
 // The Start button
 var startButtonEl = document.querySelector("#startquiz");
-// The Answer buttons
-// var answerButtonEl = "";
-// console.log(answerButtonEl);
 // Variable to track what question you're on
 var current = 0;
+// The clock as well as final score
+var timeLeft = 0;
 
 // Declare "questions" (array of questions)
 var questions = [
@@ -40,7 +43,6 @@ var questions = [
         correctAnswer: "5A"
     }
 ]
-var htmlTemplate = "";
 
 //Function for posting current question
 function displayQuestion () {
@@ -61,13 +63,16 @@ function displayResults () {
 
 }
 
-var timeLeft = 0;
+
 
 startButtonEl.addEventListener("click", startQuiz)
 
 document.addEventListener("click", answerQuestion)
 
 function startQuiz (){
+    introEl.style.display = "none";
+    quizEl.style.display = "flex";
+    current = 0;
     countdown();
     displayQuestion();
 }
@@ -87,10 +92,10 @@ function answerQuestion(event) {
             current++;
             displayQuestion();
         } else {
-            console.log("Your Score is: " + timeLeft)
-            scoreTimeEl.textContent = "";
-            clearInterval(timeInterval);
-            displayResults();
+            endQuiz();
+            // scoreTimeEl.textContent = "";
+            // clearInterval(timeInterval);
+            // displayResults();
         }
     }
 } 
@@ -104,11 +109,19 @@ function countdown() {
         scoreTimeEl.textContent = timeLeft;
         timeLeft--;
       } else {
-        scoreTimeEl.textContent = "";
-        clearInterval(timeInterval);
+        endQuiz();
+        // scoreTimeEl.textContent = "";
+        // clearInterval(timeInterval);
+
         // Call a function here if you want it to run when clock hits 0
       }
     }, 1000);
+}
+
+function endQuiz() {
+    scoreTimeEl.textContent = "";
+    clearInterval(timeInterval);
+    displayResults();
 }
 
 
