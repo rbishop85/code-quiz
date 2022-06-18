@@ -17,7 +17,9 @@ var current = 0;
 // The clock as well as final score
 var timeLeft = 0;
 var timeInterval = "";
-highScores = [];
+scoresList = [];
+var answerResponse = 0;
+// var answerInterval = "";
 
 var initials = document.querySelector("#initials");
 
@@ -83,11 +85,13 @@ function answerQuestion(event) {
     if (event.target.matches("#answerbutton")) {
         if (event.target.textContent === questions[current].correctAnswer) {
             answerResultsEl.style.color = "green";
-            answerResultsEl.textContent = "Question #" + (current +1) + " Correct!";
+            answerResultsEl.textContent = "Question #" + (current + 1) + " Correct!";
+            setTimeout(answerInterval, 1000);
         } else {
             timeLeft = (timeLeft - 5);
             answerResultsEl.style.color = "red";
-            answerResultsEl.textContent = "Question #" + (current +1) + " Wrong!";
+            answerResultsEl.textContent = "Question #" + (current + 1) + " Wrong!";
+            setTimeout(answerInterval, 1000);
         }
         if (current < (questions.length - 1)) {
             current++;
@@ -97,6 +101,10 @@ function answerQuestion(event) {
         }
     }
 } 
+
+function answerInterval() {
+    answerResultsEl.textContent = "";
+}
 
 // Countdown function
 function countdown() {
@@ -117,7 +125,7 @@ function endQuiz() {
     scoreTimeEl.textContent = "";
     scoreEl.textContent = timeLeft;
     clearInterval(timeInterval);
-    answerResultsEl.textContent = "";
+    // answerResultsEl.textContent = "";
     quizEl.style.display = "none";
     finalScoreEl.style.display = "flex";
 }
@@ -127,19 +135,19 @@ function submitScore(event) {
     if (initials.value === "") {
         return;
       }
-    var storedScores = JSON.parse(localStorage.getItem("highScores"));
+    var storedScores = JSON.parse(localStorage.getItem("scoresList"));
     if (storedScores !== null) {
-        highScores = storedScores;
+        scoresList = storedScores;
       }
     if (event.target.matches("#submit")) {
         var highScore = {
         initials: initials.value,
         score: scoreEl.textContent
         };
-        highScores.push(highScore);
+        scoresList.push(highScore);
         console.log(highScore);
-        console.log(highScores);
-        localStorage.setItem("highScores", JSON.stringify(highScores));
+        console.log(scoresList);
+        localStorage.setItem("scoresList", JSON.stringify(scoresList));
         window.location.href = "./highscores.html";
     }
   }
