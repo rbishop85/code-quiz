@@ -17,6 +17,9 @@ var current = 0;
 // The clock as well as final score
 var timeLeft = 0;
 var timeInterval = "";
+highScores = [];
+
+var initials = document.querySelector("#initials");
 
 // Declare "questions" (array of questions)
 var questions = [
@@ -50,6 +53,8 @@ var questions = [
 introEl.addEventListener("click", startQuiz)
 
 quizEl.addEventListener("click", answerQuestion)
+
+finalScoreEl.addEventListener("click", submitScore)
 
 // Function for when a user starts the quiz
 function startQuiz (event){
@@ -116,3 +121,25 @@ function endQuiz() {
     quizEl.style.display = "none";
     finalScoreEl.style.display = "flex";
 }
+
+function submitScore(event) {
+    event.preventDefault();
+    if (initials.value === "") {
+        return;
+      }
+    var storedScores = JSON.parse(localStorage.getItem("highScores"));
+    if (storedScores !== null) {
+        highScores = storedScores;
+      }
+    if (event.target.matches("#submit")) {
+        var highScore = {
+        initials: initials.value,
+        score: scoreEl.textContent
+        };
+        highScores.push(highScore);
+        console.log(highScore);
+        console.log(highScores);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        window.location.href = "./highscores.html";
+    }
+  }
