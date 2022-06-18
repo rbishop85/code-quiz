@@ -16,10 +16,11 @@ var startButtonEl = document.querySelector("#startquiz");
 var current = 0;
 // The clock as well as final score
 var timeLeft = 0;
+// The interval for changing the clock
 var timeInterval = "";
+// List of High Scores
 scoresList = [];
-var answerResponse = 0;
-// var answerInterval = "";
+
 
 var initials = document.querySelector("#initials");
 
@@ -102,6 +103,7 @@ function answerQuestion(event) {
     }
 } 
 
+// Function to clear the temporarily displayed correct or wrong status reguarding question answers
 function answerInterval() {
     answerResultsEl.textContent = "";
 }
