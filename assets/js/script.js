@@ -4,8 +4,10 @@ var scoreTimeEl = document.querySelector("#timer");
 var introEl = document.querySelector("#intro");
 // The box that questions will display in:
 var quizEl = document.querySelector("#quiz");
-// The box that the Final Score will display in:
+// Ending page that will show final score and allow you to submit your initials:
 var finalScoreEl = document.querySelector("#finalscore");
+// Span that displays final score:
+var scoreEl = document.querySelector("#score");
 // The box that Correct or Wrong will display in:
 var answerResultsEl = document.querySelector("#answerresults");
 // The Start button
@@ -14,6 +16,7 @@ var startButtonEl = document.querySelector("#startquiz");
 var current = 0;
 // The clock as well as final score
 var timeLeft = 0;
+var timeInterval = "";
 
 // Declare "questions" (array of questions)
 var questions = [
@@ -44,63 +47,53 @@ var questions = [
     }
 ]
 
-//Function for posting current question
+introEl.addEventListener("click", startQuiz)
+
+quizEl.addEventListener("click", answerQuestion)
+
+// Function for when a user starts the quiz
+function startQuiz (event){
+    if (event.target.matches("#startquiz")) {
+        introEl.style.display = "none";
+        quizEl.style.display = "flex";
+        current = 0;
+        countdown();
+        displayQuestion();
+    }
+}
+
+// Function for posting the current question
 function displayQuestion () {
-    quizEl.innerHTML = "";
-
-    quizEl.innerHTML = (
-        "<h1>" + questions[current].question + "</h1>" + 
-        "<div id='answerbutton'>" + questions[current].answers[0] + "</div>" + 
-        "<div id='answerbutton'>" + questions[current].answers[1] + "</div>" + 
-        "<div id='answerbutton'>" + questions[current].answers[2] + "</div>" + 
-        "<div id='answerbutton'>" + questions[current].answers[3] + "</div>")
+    quizEl.innerHTML = (`
+        <h1>${questions[current].question}</h1>
+        <div id="answerbutton" data-answer="${questions[current].answers[0]}">${questions[current].answers[0]}</div>
+        <div id="answerbutton" data-answer="${questions[current].answers[1]}">${questions[current].answers[1]}</div>
+        <div id="answerbutton" data-answer="${questions[current].answers[2]}">${questions[current].answers[2]}</div>
+        <div id="answerbutton" data-answer="${questions[current].answers[3]}">${questions[current].answers[3]}</div>
+    `)
 }
 
-function displayResults () {
-    quizEl.innerHTML = "";
-
-    quizEl.innerHTML = "<h1>Your score is: " + timeLeft + "!</h1>"
-
-}
-
-
-
-startButtonEl.addEventListener("click", startQuiz)
-
-document.addEventListener("click", answerQuestion)
-
-function startQuiz (){
-    introEl.style.display = "none";
-    quizEl.style.display = "flex";
-    current = 0;
-    countdown();
-    displayQuestion();
-}
-
-var timeInterval = "";
 // Function for what to do when someone clicks on a question answer
 function answerQuestion(event) {
     if (event.target.matches("#answerbutton")) {
-        console.log(current);
         if (event.target.textContent === questions[current].correctAnswer) {
-            console.log("Correct");
+            answerResultsEl.style.color = "green";
+            answerResultsEl.textContent = "Question #" + (current +1) + " Correct!";
         } else {
-            console.log("Wrong! Answer was: " + questions[current].correctAnswer);
             timeLeft = (timeLeft - 5);
+            answerResultsEl.style.color = "red";
+            answerResultsEl.textContent = "Question #" + (current +1) + " Wrong!";
         }
         if (current < (questions.length - 1)) {
             current++;
             displayQuestion();
         } else {
             endQuiz();
-            // scoreTimeEl.textContent = "";
-            // clearInterval(timeInterval);
-            // displayResults();
         }
     }
 } 
 
-// Countdown function pulled from day 1 activity 10
+// Countdown function
 function countdown() {
     timeLeft = 30;
   
@@ -110,23 +103,16 @@ function countdown() {
         timeLeft--;
       } else {
         endQuiz();
-        // scoreTimeEl.textContent = "";
-        // clearInterval(timeInterval);
-
-        // Call a function here if you want it to run when clock hits 0
       }
     }, 1000);
 }
 
+// Function to end the quiz
 function endQuiz() {
     scoreTimeEl.textContent = "";
+    scoreEl.textContent = timeLeft;
     clearInterval(timeInterval);
-    displayResults();
+    answerResultsEl.textContent = "";
+    quizEl.style.display = "none";
+    finalScoreEl.style.display = "flex";
 }
-
-
-
-
-
-
-
