@@ -74,10 +74,10 @@ function startQuiz (event){
 function displayQuestion () {
     quizEl.innerHTML = (`
         <h1>${questions[current].question}</h1>
-        <div id="answerbutton" data-answer="${questions[current].answers[0]}">${questions[current].answers[0]}</div>
-        <div id="answerbutton" data-answer="${questions[current].answers[1]}">${questions[current].answers[1]}</div>
-        <div id="answerbutton" data-answer="${questions[current].answers[2]}">${questions[current].answers[2]}</div>
-        <div id="answerbutton" data-answer="${questions[current].answers[3]}">${questions[current].answers[3]}</div>
+        <div id="answerbutton" class ="button" data-answer="${questions[current].answers[0]}">${questions[current].answers[0]}</div>
+        <div id="answerbutton" class ="button" data-answer="${questions[current].answers[1]}">${questions[current].answers[1]}</div>
+        <div id="answerbutton" class ="button" data-answer="${questions[current].answers[2]}">${questions[current].answers[2]}</div>
+        <div id="answerbutton" class ="button" data-answer="${questions[current].answers[3]}">${questions[current].answers[3]}</div>
     `)
 }
 
