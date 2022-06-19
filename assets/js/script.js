@@ -90,7 +90,7 @@ function answerQuestion(event) {
             answerResultsEl.textContent = "Question #" + (current + 1) + " Correct!";
             setTimeout(answerInterval, 1000);
         } else {
-            timeLeft = (timeLeft - 5);
+            timeLeft = (timeLeft - 10);
             answerResultsEl.style.color = "var(--wrong)";
             answerResultsEl.style.display = "block";
             answerResultsEl.textContent = "Question #" + (current + 1) + " Wrong!";
@@ -113,7 +113,7 @@ function answerInterval() {
 
 // Countdown function
 function countdown() {
-    timeLeft = 30;
+    timeLeft = 45;
   
     timeInterval = setInterval(function () {
       if (timeLeft >= 1) {
