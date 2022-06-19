@@ -27,29 +27,29 @@ var initials = document.querySelector("#initials");
 // Declare "questions" (array of questions)
 var questions = [
     {
-        question: "Question 1",
-        answers: ["1A", "1B", "1C", "1D"],
-        correctAnswer: "1A"
+        question: "Which of the following is not a Javascript data type?",
+        answers: ["Boolean", "String", "False", "Undefined"],
+        correctAnswer: "False"
     },
     {
-        question: "Question 2",
-        answers: ["2A", "2B", "2C", "2D"],
-        correctAnswer: "2A"
+        question: "Which of the following is an event type?",
+        answers: ["dblclick", "click", "scroll", "All of the above"],
+        correctAnswer: "All of the above"
     },
     {
-        question: "Question 3",
-        answers: ["3A", "3B", "3C", "3D"],
-        correctAnswer: "3A"
+        question: "Which of the following is not a file extension for a common programming language?",
+        answers: ["html", "jpg", "js", "css"],
+        correctAnswer: "jpg"
     },
     {
-        question: "Question 4",
-        answers: ["4A", "4B", "4C", "4D"],
-        correctAnswer: "4A"
+        question: "Which character references an object's ID from a css file?",
+        answers: ["@", "!", "#", "."],
+        correctAnswer: "#"
     },
     {
-        question: "Question 5",
-        answers: ["5A", "5B", "5C", "5D"],
-        correctAnswer: "5A"
+        question: "Which of the following is not a semantic html element?",
+        answers: ["nav", "div", "section", "main"],
+        correctAnswer: "div"
     }
 ]
 
