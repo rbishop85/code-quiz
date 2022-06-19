@@ -18,7 +18,7 @@ function displayScores() {
 
 buttonsEl.addEventListener("click", function(event) {
     if (event.target.matches("#back")) {
-        window.location.href = "./";
+        window.location.href = "./index.html";
     }
 });
 

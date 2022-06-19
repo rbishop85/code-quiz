@@ -85,12 +85,14 @@ function displayQuestion () {
 function answerQuestion(event) {
     if (event.target.matches("#answerbutton")) {
         if (event.target.textContent === questions[current].correctAnswer) {
-            answerResultsEl.style.color = "green";
+            answerResultsEl.style.color = "var(--right)";
+            answerResultsEl.style.display = "block";
             answerResultsEl.textContent = "Question #" + (current + 1) + " Correct!";
             setTimeout(answerInterval, 1000);
         } else {
             timeLeft = (timeLeft - 5);
-            answerResultsEl.style.color = "red";
+            answerResultsEl.style.color = "var(--wrong)";
+            answerResultsEl.style.display = "block";
             answerResultsEl.textContent = "Question #" + (current + 1) + " Wrong!";
             setTimeout(answerInterval, 1000);
         }
@@ -106,6 +108,7 @@ function answerQuestion(event) {
 // Function to clear the temporarily displayed correct or wrong status reguarding question answers
 function answerInterval() {
     answerResultsEl.textContent = "";
+    answerResultsEl.style.display = "none";
 }
 
 // Countdown function
@@ -130,6 +133,7 @@ function endQuiz() {
     // answerResultsEl.textContent = "";
     quizEl.style.display = "none";
     finalScoreEl.style.display = "flex";
+    document.getElementById("initials").focus();
 }
 
 function submitScore(event) {
@@ -153,3 +157,5 @@ function submitScore(event) {
         window.location.href = "./highscores.html";
     }
   }
+
+  

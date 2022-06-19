@@ -1,3 +1,16 @@
+:root {
+    --primary: rgba(72, 72, 72, 1);
+    --secondary: rgba(25, 26, 29, 1);
+    --text: rgba(224, 225, 221, 1);
+    --color: rgba(0, 123, 109, 1);
+    --right: rgb(0, 255, 0);
+    --wrong: rgb(255, 0, 0);
+    --li-odd: rgb(211,211,211);
+    --li-even: rgb(169,169,169);
+}
+
+
+
 header{
     display: flex;
     justify-content: space-between;
@@ -8,36 +21,61 @@ header{
     padding: 10px;
 }
 
-#main {
+main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding-top: 50px;
+
+}
+
+#answerresults {
+    background-color: var(--secondary);
+    margin: 10px auto;
+    display: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+#main {
+    width: 50%;
+    display: flex;
+    background-color: var(--primary);
+    color: var(--text);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px 0px;
+    flex-direction: column;
+    border-radius: 40px;
 }
 
 ul {
-    background-color: darkslategrey;
     list-style: none;
     padding: 0px;
 }
 
 li {
-    background-color: lightgrey;
+    background-color: var(--li-odd);
     text-align: left;
     font-size: 20px;
     padding: 2px 10px;
-    /* margin-top: 2px; */
 }
 
 li:nth-child(even) {
-    background-color: darkgrey;
+    background-color: var(--li-even);
 }
 
 #scoreslist {
     margin: 5px auto;
+    color: var(--secondary);
 }
 
-#intro, #quiz, #finalscore, #answerresults {
+#timer {
+    color: var(--wrong);
+}
+
+#intro, #quiz, #finalscore {
     width: 50%;
     margin: 10px;
     padding: 10px;
@@ -48,6 +86,11 @@ li:nth-child(even) {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+#scores {
+    align-items: center;
+    justify-content: center;
 }
 
 #intro {
@@ -70,14 +113,22 @@ h1 {
     display: flex;
 }
 
-#answerbutton, #startquiz, .button {
-    background-color: lightgrey;
+.button, #submit {
+    background-color: green;
     margin: 5px auto;
     border: 2px solid black;
     border-radius: .5em;
     padding: .25em;
     cursor: pointer;
-    background-color: white;
+}
+
+.button:hover, .button:focus {
+    box-shadow: 0 0 10px var(--secondary) inset, 5px 5px 5px var(--secondary);
+}
+  
+
+.button:active {
+    font-size: 90%;
 }
 
 #back, #clearscores {
