@@ -7,10 +7,11 @@ console.log(scoresList);
 displayScores();
 
 function displayScores() {
-    for (let i = 0; i < scoresList.length; i++) {
+    var newList = scoresList.sort((a, b) => b.score-a.score);
+    for (let i = 0; i < newList.length; i++) {
         var li = document.createElement("li");
         li.setAttribute("class", "scoreitem");
-        li.textContent = ((i+1) + ". " + scoresList[i].initials + " - " + scoresList[i].score )
+        li.textContent = ((i+1) + ". " + newList[i].initials + " - " + newList[i].score )
         scoresListEl.appendChild(li);
       }
 }
