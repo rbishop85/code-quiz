@@ -4,6 +4,12 @@ Timed coding quiz featuring dynamically updated HTML and CSS powered by Javascri
 
 ---
 
+Created by: Robert Bishop
+
+<a href="mailto: rbishop85@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+<a href="https://github.com/rbishop85" target="_blank"><img src="	https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>
+<a href="https://www.linkedin.com/in/robert-m-bishop/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+
 ## Contents:
 * [Live Page Link](#live-page-link)
 * [Screenshots](#screenshots)
@@ -21,12 +27,19 @@ Timed coding quiz featuring dynamically updated HTML and CSS powered by Javascri
 
 ## Screenshots:
 
-![Screenshot of quiz starting page.](./assets/images/quiz-sc1.jpg)
 > Intro Page where quiz is started.
+
+![Screenshot of quiz starting page.](./assets/images/quiz-sc1.jpg)
+
+> Sample question page, result of previous questions shown at bottom.
 
 ![Screenshot of a question, with the result from the previous question briefly displayed at bottom.](./assets/images/quiz-sc2.jpg)
 
+> Final page of quiz where score is displayed and user has option of storing their intials along with their score.
+
 ![Screenshot of final quiz page where you can key in your initials to save with your score.](./assets/images/quiz-sc3.jpg)
+
+> High scores page.
 
 ![Screenshot of high scores page.](./assets/images/quiz-sc4.jpg)
 
@@ -61,23 +74,23 @@ Timed coding quiz featuring dynamically updated HTML and CSS powered by Javascri
 ## Steps Taken:
 
 - [x] Created intial html, css and js pages and linked them together.
-- Made basic html layout and setup basic css styling to get elements where I wanted.
-- Started setting up variables.
-- Setup a basic timer countdown that clears at 0.
-- Setup the html/css layout of individual quez questions.
-- Setup initial start button function.
-- Setup responses to selecting quiz answers.
-- Ensured that pages changed and timer was affected based on answers chosen.
-- Created sepearate elements for intro, quiz and final score page and set them so that they'd be either hidden or shown depending on what info was supposed to be on the page.
-- Made sure that the countdown hitting 0 also ended the game.
-- Setup final score page.
-- Coded final score page so that upon keying in intials and submitting both the initials and final score would be stored in an object and then inserted into an ongoing array of scores stored in local system memory.
-- Refined the coding for the displayed question results so they'd show up properly and clear out after a short amount of time.
-- Started working on the separate high scores page.
-- Finished up coding of high scores page setting it to automatically sort scores by highest first.
-- Tweaked overall page css styling.
-- Replaced placeholder questions used for page development with actual questions and answers.
-- Created README.
+- [x] Made basic html layout and setup basic css styling to get elements where I wanted.
+- [x] Started setting up variables.
+- [x] Setup a basic timer countdown that clears at 0.
+- [x] Setup the html/css layout of individual quez questions.
+- [x] Setup initial start button function.
+- [x] Setup responses to selecting quiz answers.
+- [x] Ensured that pages changed and timer was affected based on answers chosen.
+- [x] Created sepearate elements for intro, quiz and final score page and set them so that they'd be either hidden or shown depending on what info was supposed to be on the page.
+- [x] Made sure that the countdown hitting 0 also ended the game.
+- [x] Setup final score page.
+- [x] Coded final score page so that upon keying in intials and submitting both the initials and final score would be stored in an object and then inserted into an ongoing array of scores stored in local system memory.
+- [x] Refined the coding for the displayed question results so they'd show up properly and clear out after a short amount of time.
+- [x] Started working on the separate high scores page.
+- [x] Finished up coding of high scores page setting it to automatically sort scores by highest first.
+- [x] Tweaked overall page css styling.
+- [x] Replaced placeholder questions used for page development with actual questions and answers.
+- [x] Created README.
 
 ---
 
