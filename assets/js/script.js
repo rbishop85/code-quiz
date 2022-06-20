@@ -20,8 +20,7 @@ var timeLeft = 0;
 var timeInterval = "";
 // List of High Scores
 scoresList = [];
-
-
+// Intials input area where score is recorded
 var initials = document.querySelector("#initials");
 
 // Declare "questions" (array of questions)
@@ -53,6 +52,7 @@ var questions = [
     }
 ]
 
+// Event Listeners for click events on buttons
 introEl.addEventListener("click", startQuiz)
 
 quizEl.addEventListener("click", answerQuestion)
@@ -114,7 +114,6 @@ function answerInterval() {
 // Countdown function
 function countdown() {
     timeLeft = 45;
-  
     timeInterval = setInterval(function () {
       if (timeLeft >= 1) {
         scoreTimeEl.textContent = timeLeft;
@@ -130,12 +129,12 @@ function endQuiz() {
     scoreTimeEl.textContent = "";
     scoreEl.textContent = timeLeft;
     clearInterval(timeInterval);
-    // answerResultsEl.textContent = "";
     quizEl.style.display = "none";
     finalScoreEl.style.display = "flex";
     document.getElementById("initials").focus();
 }
 
+// Function to submit initials and score when submit button is pushed on final quiz page
 function submitScore(event) {
     event.preventDefault();
     if (initials.value === "") {
@@ -157,5 +156,3 @@ function submitScore(event) {
         window.location.href = "./highscores.html";
     }
   }
-
-  
